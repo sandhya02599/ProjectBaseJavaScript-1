@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sidebar</title>
+    <style>
+         *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        .container{
+            width: 100%;
+            height: 2000px;
+            margin-top: 50px;
+        }
+
+        .topnavbar{
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #df8080;
+            color: white;
+        } 
+
+        .topnavbar h4 {
+            cursor: pointer;
+        }
+
+       
+        .sidebar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 250px;
+            height: 100%;
+            background-color: #333;
+            padding-top: 20px;
+            transform: translateX(-100%);
+            transition: transform 0.3s ease;
+            z-index: 1000;
+            color: white;
+        }
+
+        .sidebar.show {
+            transform: translateX(0);
+        }
+
+        .sidebar h4 {
+            padding: 15px;
+            color: white;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .sidebar h4:hover {
+            background-color: #555;
+        }
+
+        .sidebar-close-btn {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: transparent;
+            border: none;
+            font-size: 1.5rem;
+            color: white;
+            cursor: pointer;
+        }
+
+        .hamburger {
+            font-size: 2rem;
+            cursor: pointer;
+            color: white;
+        }
+
+        .content {
+            margin-left: 20px;
+            margin-top: 50px;
+        }
+
+        .C {
+            height: 600px;
+            width: 100%;
+            background-image: url(images/South-African-poverty-and-education.jpg);
+            background-size: cover;
+            margin-top: 10px;
+        }
+
+        .C h1 {
+            text-align: left;
+            padding-right: 100px;
+            font-size: 50px;
+            margin-left: 20px;
+            padding-top: 200px;
+            color: black;           
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        
+        <div class="topnavbar">
+            <div>
+                <img src="images/logo.svg" width="90%" height="50px">
+            </div>
+            <div class="hamburger" onclick="toggleSidebar()">☰</div>
+        </div>
+
+      
+        <div id="sidebar" class="sidebar">
+            <button class="sidebar-close-btn" onclick="toggleSidebar()">✖</button>
+            <h4>Home</h4>
+            <h4>About Us</h4>
+            <h4>Team</h4>
+            <h4>Services</h4>
+            <h4>Contact Us</h4>
+        </div>
+
+        
+        <div class="content">
+            <div class="C">
+                <h1>Welcome to Our Website</h1>
+            </div>
+        </div>
+    </div>
+
+    <script>
+       
+        function toggleSidebar() {
+            const sidebar = document.getElementById("sidebar");
+            sidebar.classList.toggle("show");
+        }
+    </script>
+</body>
+</html>

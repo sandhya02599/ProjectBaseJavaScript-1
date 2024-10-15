@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dark Mode Toggle</title>
+  <style>
+
+:root {
+  --background-color: #ffffff;
+  --text-color: #333333;
+  --nav-background: #f4f4f4;
+  --button-background: #007BFF;
+  --button-color: #ffffff;
+  --button-hover-background: #0056b3;
+}
+
+
+body.dark-mode {
+  --background-color: #333333;
+  --text-color: #f4f4f4;
+  --nav-background: #222222;
+  --button-background: #444444;
+  --button-color: #ffffff;
+  --button-hover-background: #666666;
+}
+
+
+body {
+  background-color: var(--background-color);
+  color: var(--text-color);
+  font-family: Arial, sans-serif;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+
+nav {
+  background-color: var(--nav-background);
+  padding: 1rem;
+  text-align: center;
+}
+
+
+.btn {
+  padding: 0.5rem 1rem;
+  background-color: var(--button-background);
+  color: var(--button-color);
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+  background-color: var(--button-hover-background);
+}
+
+
+section {
+  margin: 2rem auto;
+  max-width: 800px;
+  text-align: center;
+}
+
+h2 {
+  margin-bottom: 1rem;
+}
+
+p {
+  font-size: 1.25rem;
+}
+
+  </style>
+</head>
+<body>
+  <nav>
+    <h1>Dark Mode Example</h1>
+    <button id="dark-mode-toggle" class="btn">Toggle Dark Mode</button>
+  </nav>
+
+  <main>
+    <section>
+      <h2>Welcome to Dark Mode Demo</h2>
+      <p>This is a simple example of how to implement dark mode using HTML, CSS, and JavaScript.</p>
+    </section>
+  </main>
+
+  <script>
+
+const toggleButton = document.getElementById('dark-mode-toggle');
+
+
+toggleButton.addEventListener('click', () => {
+ 
+  document.body.classList.toggle('dark-mode');
+  
+  
+  if (document.body.classList.contains('dark-mode')) {
+    toggleButton.textContent = "Switch to Light Mode";
+  } else {
+    toggleButton.textContent = "Switch to Dark Mode";
+  }
+});
+
+  </script>
+</body>
+</html>
